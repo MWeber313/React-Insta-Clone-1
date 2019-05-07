@@ -1,7 +1,8 @@
 import React from 'react'
 import './searchcontainer.scss'
 
-const SearchBar = () => {
+
+const SearchBar = props => {
     return(
         <div className="searchcontainer">
             <div className="left">
@@ -10,7 +11,7 @@ const SearchBar = () => {
             </div>
             <div className="center">
                 <form>
-                    <input placeholder="Search"></input>
+                    <input onChange={props.searchPosts} placeholder="Search"></input>
                 </form>
             </div>
             <div className="right">

@@ -2,8 +2,8 @@ import React from 'react';
 import './PostContainer.scss';
 import CommentSection from '../CommentSection/CommentSection.js';
 import styled from "styled-components"
-import AddComment from '../CommentSection/AddComment.js';
 import PropTypes from 'prop-types'
+import LikesButton from './LikesButton.js';
 
 const PostHeaderDiv = styled.div`
     display: flex;
@@ -13,10 +13,6 @@ const PostHeaderDiv = styled.div`
     margin-top: 15px;
     margin-bottom: 15px;
 `
-const CenterSpan = styled.span`
-    display: flex;
-    justify-content: center;
-`
 const TimeP = styled.p`
     color: gray;
     font-size: 14px;
@@ -24,30 +20,31 @@ const TimeP = styled.p`
     margin-top: 0;
 `
 
-const PostContainer = props => {
+class PostContainer extends React.Component {
+    componentDidMount(){
+        console.log ("Component is mounting from PostContainer!")
+    }
+
+    render(){
     return(
         <div>
-            {props.containProps.map((item, index) => (
+            {this.props.containProps.map((item, index) => (
                 <div className="postcontainer" key={index}>
-                    <PostHeaderDiv>
-                        <img className="imgThumb" src={item.thumbnailUrl} alt="User's profile!" />
-                        <h4 className="user">{item.username}</h4>
-                    </PostHeaderDiv>
+                        <PostHeaderDiv>
+                            <img className="imgThumb" src={item.thumbnailUrl} alt="User's profile!" />
+                            <h4 className="user">{item.username}</h4>
+                        </PostHeaderDiv>
                     <div>
                         <img src={item.imageUrl} alt="User's posting!"/>
-                        
-                        <div className="likescontainer">
-                            <i className="likeimg far fa-heart fa-lg"></i>
-                            <p>{item.likes} Likes</p> 
-                        </div>
+                        <LikesButton likesProps={item.likes} />
                     </div>
-                    <CommentSection commentProps={item.comments}/>
-                    <TimeP>{item.timestamp}</TimeP>
-                    <CenterSpan><AddComment /></CenterSpan>
+                        <TimeP>{item.timestamp}</TimeP>
+                        <CommentSection commentProps={item.comments}/>
                 </div>
                 ))}
         </div>
-    )
+        )
+    }
 }
 
 PostContainer.propTypes = {
