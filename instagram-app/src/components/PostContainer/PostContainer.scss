@@ -22,7 +22,10 @@
         flex-flow: column nowrap;
         margin-left: 5px;
         .fa-heart {
+            cursor: pointer;
             margin-top: 5px
         }
+        .heart {
+            color: red;}
     }
 }

@@ -6,20 +6,24 @@ class LikesButton extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            likes: props.likesProps
+            likes: props.likesProps,
+            clicked: false
         }
     }
 
     handleClick = () => {
-        this.setState(() => ({
-          likes: this.state.likes + 1
-        }));
+        if (this.state.clicked === true){
+            this.setState({clicked: false, likes: this.state.likes -1})
+        } else {
+            this.setState({clicked: true, likes: this.state.likes +1})
+        }
       };
 
     render(){
+    const heartClass = this.state.clicked ? "far fa-heart fa-lg heart" : "far fa-heart fa-lg"
     return (
     <div className="likescontainer">
-        <i className="likeimg far fa-heart fa-lg" onClick={this.handleClick}></i>
+        <i className={heartClass} onClick={this.handleClick}></i>
         <p>{this.state.likes} Likes</p> 
     </div>
     )

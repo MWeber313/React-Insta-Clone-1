@@ -5,6 +5,8 @@ import styled from "styled-components"
 import PropTypes from 'prop-types'
 import LikesButton from './LikesButton.js';
 
+
+
 const PostHeaderDiv = styled.div`
     display: flex;
     flex-flow: row nowrap;
@@ -25,24 +27,29 @@ class PostContainer extends React.Component {
         console.log ("Component is mounting from PostContainer!")
     }
 
+    // logout = () => {
+    //     localStorage.removeItem('user');
+    //     localStorage.removeItem('pass');
+    // }
+
     render(){
     return(
-        <div>
-            {this.props.containProps.map((item, index) => (
-                <div className="postcontainer" key={index}>
-                        <PostHeaderDiv>
-                            <img className="imgThumb" src={item.thumbnailUrl} alt="User's profile!" />
-                            <h4 className="user">{item.username}</h4>
-                        </PostHeaderDiv>
-                    <div>
-                        <img src={item.imageUrl} alt="User's posting!"/>
-                        <LikesButton likesProps={item.likes} />
-                    </div>
-                        <TimeP>{item.timestamp}</TimeP>
-                        <CommentSection commentProps={item.comments}/>
+    <div>
+        {this.props.containProps.map((item, index) => (
+            <div className="postcontainer" key={index}>
+                    <PostHeaderDiv>
+                        <img className="imgThumb" src={item.thumbnailUrl} alt="User's profile!" />
+                        <h4 className="user">{item.username}</h4>
+                    </PostHeaderDiv>
+                <div>
+                    <img src={item.imageUrl} alt="User's posting!"/>
+                    <LikesButton likesProps={item.likes} />
                 </div>
-                ))}
-        </div>
+                    <TimeP>{item.timestamp}</TimeP>
+                    <CommentSection commentProps={item.comments}/>
+            </div>
+            ))}
+    </div>
         )
     }
 }

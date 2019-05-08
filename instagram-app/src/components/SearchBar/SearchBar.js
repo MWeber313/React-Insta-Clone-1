@@ -1,17 +1,35 @@
 import React from 'react'
 import './searchcontainer.scss'
 
+class SearchBar extends React.Component {
+    constructor(){
+        super();
+        this.toggle = this.toggle.bind(this);
+        this.state={
+            dropdownOpen: false,
+            dropdownOpen1: false,
+            dropdownOpen2: false,
+        }
+    }
 
-const SearchBar = props => {
+    toggle() {
+        this.setState({
+          dropdownOpen: !this.state.dropdownOpen,
+          dropdownOpen1: !this.state.dropdownOpen1,
+          dropdownOpen2: !this.state.dropdownOpen2,
+        });
+      }
+
+    render(){
     return(
         <div className="searchcontainer">
             <div className="left">
                 <i className="fas fa-camera-retro fa-2x"></i>
-                <h1>Instagram</h1>
+                <h1>Webstagram</h1>
             </div>
             <div className="center">
                 <form>
-                    <input onChange={props.searchPosts} placeholder="Search"></input>
+                    <input onChange={this.props.searchPosts} placeholder="Search"></input>
                 </form>
             </div>
             <div className="right">
@@ -21,6 +39,7 @@ const SearchBar = props => {
             </div>
         </div>
     )
+    }
 }
 
 export default SearchBar;

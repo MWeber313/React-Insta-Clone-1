@@ -32,6 +32,21 @@
     .right {
         margin-top: 15px;
         margin-right: 50px;
+        .fa-compass {
+            &:hover{
+                color: lightblue;
+            }
+        }
+        .fa-heart {
+            &:hover{
+                color: red;
+            }
+        }
+        .fa-user {
+            &:hover{
+                color:darksalmon;
+            }
+        }
         i {
             margin-left: 2.5px;
             margin-right: 5px;
