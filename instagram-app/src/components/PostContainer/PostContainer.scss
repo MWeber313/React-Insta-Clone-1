@@ -1,0 +1,31 @@
+.postcontainer {
+    border: 2px solid lightgrey;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 0;
+    .imgThumb {
+        border-radius: 45%;
+        height: 50px;
+        width: 50px;
+    }
+    .user{
+        margin-left: 10px;
+        margin-top: 10px;
+        font-weight: 600;
+    }
+    .likescontainer {
+        font-weight: 600;
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column nowrap;
+        margin-left: 5px;
+        .fa-heart {
+            cursor: pointer;
+            margin-top: 5px
+        }
+        .heart {
+            color: red;}
+    }
+}
