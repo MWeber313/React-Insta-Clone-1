@@ -1,6 +1,20 @@
 import React from 'react';
 import './PostContainer.scss';
+import styled from 'styled-components'
 
+const LikesContainer = styled.div`
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column nowrap;
+    margin-left: 5px;
+    .fa-heart {
+        cursor: pointer;
+        margin-top: 5px
+    }
+    .heart {
+        color: red;}
+`
 
 class LikesButton extends React.Component {
     constructor(props){
@@ -22,10 +36,10 @@ class LikesButton extends React.Component {
     render(){
     const heartClass = this.state.clicked ? "far fa-heart fa-lg heart" : "far fa-heart fa-lg"
     return (
-    <div className="likescontainer">
+    <LikesContainer>
         <i className={heartClass} onClick={this.handleClick}></i>
         <p>{this.state.likes} Likes</p> 
-    </div>
+    </LikesContainer>
     )
     }
 }

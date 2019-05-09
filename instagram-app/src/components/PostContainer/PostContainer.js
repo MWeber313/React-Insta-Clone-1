@@ -21,25 +21,38 @@ const TimeP = styled.p`
     margin-left: 10px;
     margin-top: 0;
 `
+const PostDiv = styled.div`
+    border: 2px solid lightgrey;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 0;
+`
+const PostImg = styled.img`
+    border-radius: 45%;
+    height: 50px;
+    width: 50px;
+`
+const PostUser = styled.h4`
+    margin-left: 10px;
+    margin-top: 10px;
+    font-weight: 600;
+`
 
 class PostContainer extends React.Component {
     componentDidMount(){
         console.log ("Component is mounting from PostContainer!")
     }
 
-    // logout = () => {
-    //     localStorage.removeItem('user');
-    //     localStorage.removeItem('pass');
-    // }
-
     render(){
     return(
     <div>
         {this.props.containProps.map((item, index) => (
-            <div className="postcontainer" key={index}>
+            <PostDiv key={index}>
                     <PostHeaderDiv>
-                        <img className="imgThumb" src={item.thumbnailUrl} alt="User's profile!" />
-                        <h4 className="user">{item.username}</h4>
+                        <PostImg src={item.thumbnailUrl} alt="User's profile!" />
+                        <PostUser>{item.username}</PostUser>
                     </PostHeaderDiv>
                 <div>
                     <img src={item.imageUrl} alt="User's posting!"/>
@@ -47,7 +60,7 @@ class PostContainer extends React.Component {
                 </div>
                     <TimeP>{item.timestamp}</TimeP>
                     <CommentSection commentProps={item.comments}/>
-            </div>
+            </PostDiv>
             ))}
     </div>
         )

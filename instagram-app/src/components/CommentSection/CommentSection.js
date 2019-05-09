@@ -52,15 +52,14 @@ class CommentSection extends React.Component{
     return(
         <div>
             {this.state.comments.map((item, index) => (
-                <Row key={index}>
-                    <StyledP><strong>{item.username}</strong></StyledP>
-                    <p>{item.text}</p>
-                </Row>
+            <Row key={index}>
+                <StyledP><strong>{item.username}</strong></StyledP>
+                <p>{item.text}</p>
+            </Row>
             ))}
-            
             <CenterSpan>    
-            <AddComment handleSubmit={this.addNewComment} addValue={this.state.input} handleChange={this.handleChange}  />
-        </CenterSpan>
+                <AddComment handleSubmit={this.addNewComment} addValue={this.state.input} handleChange={this.handleChange}  />
+            </CenterSpan>
         </div>
         )
     }

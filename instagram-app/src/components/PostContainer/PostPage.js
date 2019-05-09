@@ -7,10 +7,13 @@ import Footer from '../Footer/Footer.js'
 import { Button } from 'reactstrap'
 
 const ContainerDiv = styled.div`
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+`
+const AppDiv = styled.div`
+  text-align:center;
 `
 
 class PostPage extends React.Component {
@@ -41,7 +44,7 @@ class PostPage extends React.Component {
 
   render(){
     return(
-      <div className="App">
+      <AppDiv>
         <SearchBar searchPosts={this.handleSearch} />
         <ContainerDiv>
           <PostContainer containProps={this.state.filteredData.length > 0
@@ -50,7 +53,7 @@ class PostPage extends React.Component {
         </ContainerDiv>
         <Button color="danger" onClick={this.props.logOut}>Logout</Button>
         <Footer />
-      </div>
+      </AppDiv>
     )
   }
 }
